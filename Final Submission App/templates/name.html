@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<script>
+	//this is super important -- lets us access all the json items in javascript
+
+	</script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUProduct Website GeneratorcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel = "stylesheet" href="/static/styles/main.css" />
+	<script src = "/static/name.js"></script>
+	<script>
+      let data = {{data|tojson}}
+	</script>
+
+	<title></title>
+  </head>
+  <body>
+  <p>
+     This is the product you're selling: {{data['product_id']}}
+  </p>
+  <p>
+    Here's a couple of suggested product names for you:
+  </p>
+  <p>
+    {{data['numbered_product_names']}}
+  </p>
+  <p>
+    Enter the name you want to pick for the product: <input type="text" name="" value="" id="product_name"> <button type="button" name="button" id="submit_product_name"></button>
+  </p>
+
+  </body>
+</html>
