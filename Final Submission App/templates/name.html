@@ -1,37 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<script>
-	//this is super important -- lets us access all the json items in javascript
-
-	</script>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUProduct Website GeneratorcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel = "stylesheet" href="/static/styles/main.css" />
-	<script src = "/static/name.js"></script>
-	<script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/styles/main.css" />
+    <script src="/static/name.js"></script>
+    <script>
       let data = {{data|tojson}}
-	</script>
+    </script>
 
-	<title></title>
+    <title></title>
   </head>
   <body>
-  <p>
-     This is the product you're selling: {{data['product_id']}}
-  </p>
-  <p>
-    Here's a couple of suggested product names for you:
-  </p>
-  <p>
-    {{data['numbered_product_names']}}
-  </p>
-  <p>
-    Enter the name you want to pick for the product: <input type="text" name="" value="" id="product_name"> <button type="button" name="button" id="submit_product_name"></button>
-  </p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/">Online Creative Director</a>
+      </div>
+    </nav>
 
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12">
+          <div class="large bold">
+            Here's a couple of suggested product names for you:
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12">
+          <div class="large bold">
+            This is the product you're selling: {{data['product_id']}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12">
+          <div class="large bold">{{data['numbered_product_names']}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12">
+          <div class="large bold">
+            Enter the name you want to pick for the product:
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12">
+          <input type="text" name="" value="" id="product_name" />
+          <button type="button" name="button" id="submit_product_name">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

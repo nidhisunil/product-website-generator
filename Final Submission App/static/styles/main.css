@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(51, 49, 126);
+  }
+  body {
+    color: white;
+  }
+  .navbar-brand {
+    font-size: 35px;
+  }
+  div {
+    font-size: 35px;
+  }
