@@ -1,75 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/static/styles/main.css" />
-    <script src="/static/final_template.js"></script>
-
-    <script src="/static/index.js"></script>
-
-    <script>
+{% extends "layout.html" %}
+{% block content %}
+  <script type="text/javascript" src="{{ url_for('static', filename = 'final_template.js') }}"></script>
+  <script>
       let data = {{data|tojson}}
-    </script>
+  </script>
 
-    <title>Product Website Generator</title>
-  </head>
+  <div class="m-4 mb-5 lead">
+    The product you're selling is: {{data['product_id']}} <br>
+    The name you picked for it is: {{data['product_name']}} <br>
+    The tagline you picked is: {{data['product_tagline']}} <br>
+    The paragraph you picked is:
+    <p class="mx-5"><small>{{data['product_paragraph']}}</small></p>
+    The colour you picked is: {{data['product_colour']}} <br>
+    The secondary colour you picked is: {{data['product_sscolour']}}
+  </div>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/">Online Creative Director</a>
-      </div>
-    </nav>
 
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <div class="large bold">
-            The product you're selling is: {{data['product_id']}} <br />
-            The name you picked for it is: {{data['product_name']}} <br />
-            The tagline you picked is: {{data['product_tagline']}} <br />
-            The paragraph you picked is: {{data['product_paragraph']}} <br />
-            The colour you picked is: {{data['product_colour']}} <br />
-            The secondary colour you picked is: {{data['product_sscolour']}}
-            <br />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <div class="large bold">
-            Click to see final site:
-            <br />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <div class="large bold">
-            <button type="button" name="button" id="final_website">HERE</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class=""><br /></div>
-  </body>
-</html>
+  <br>
+  <div class="m-3 lead text-center">
+    Click to see final site:
+  </div>
+  <div class="m-3 text-center">
+    <button type="button" name="button" class="btn btn-secondary" id="final_website">Here</button>
+  </div>
+{% endblock %}

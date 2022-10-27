@@ -7,7 +7,8 @@ import time
 import openai
 import ipywidgets as widgets
 import textwrap as tw
-openai.api_key = "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"
+#openai.api_key = "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"
+openai.api_key = "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"
 import re
 
 app = Flask(__name__)
@@ -163,3 +164,6 @@ def save_productsscolour():
     productSSColour = json_data["product_sscolour"]
     item_to_return = {'product_id': productID, 'product_name': productName, 'product_tagline': productTagline, 'product_colour': productColour, 'product_paragraph': productParagraph, 'product_sscolour': productSSColour}
     return jsonify(item_to_return)
+
+if __name__ == '__main__':
+   app.run(debug = True)
