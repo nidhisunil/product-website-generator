@@ -1,107 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script></script>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/static/styles/main.css" />
-
-    <script src="/static/index.js"></script>
-    <script src="/static/paragraph.js"></script>
-    <script>
+{% extends "layout.html" %}
+{% block content %}
+  <script type="text/javascript" src="{{ url_for('static', filename = 'paragraph.js') }}"></script>
+  <script>
       let data = {{data|tojson}}
-    </script>
+  </script>
 
-    <title>Product Website Generator</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/">Online Creative Director</a>
-      </div>
-    </nav>
+  <div class="m-4 mb-5 lead">
+    The product you're selling is: {{data['product_id']}} <br>
+    The name you picked for it is: {{data['product_name']}} <br>
+    The tagline you picked is: {{data['product_tagline']}}
+  </div>
 
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <div class="large bold">
-            The product you're selling is: {{data['product_id']}} The name you
-            picked for it is: {{data['product_name']}} The tagline you picked
-            is: {{data['product_tagline']}}
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="m-4 lead">
+    Here's a suggested paragraph for your product
+  </div>
+  <div class="m-4">
+    {{data['product_paragraph']}}
+  </div>
 
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <div class="large bold">
-            Here's a suggested paragraph for your product
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <div class="large bold" style="font-size: 25px">
-            {{data['product_paragraph']}}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <div class="large bold">
-            Here's also some suggested colours for your website:
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <div class="large bold">{{data['numbered_product_colours']}}</div>
-        </div>
-      </div>
-    </div>
+  <div class="m-4 lead">
+    Here's also some suggested colours for your website:
+  </div>
+  <div class="m-4">
+    {{data['numbered_product_colours']}}
+  </div>
 
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <div class="large bold">
-            Which colour do you want your website to be primarily?
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12">
-          <input type="text" name="" value="" id="product_colour" /><button
-            type="button"
-            name="button"
-            id="submit_product_colour"
-          >
-            Submit
-          </button>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+  <br><br>
+  <div class="m-3 lead text-center">
+    Which colour do you want your website to be primarily? 
+  </div>
+  <div class="m-3 text-center">
+    <input type="text" name="" value="" id="product_colour">
+  </div>
+  <div class="m-3 text-center">
+    <button type="button" name="button" class="btn btn-secondary" id="submit_product_colour">Submit</button>
+  </div>
+{% endblock %}

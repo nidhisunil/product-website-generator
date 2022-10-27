@@ -163,3 +163,6 @@ def save_productsscolour():
     productSSColour = json_data["product_sscolour"]
     item_to_return = {'product_id': productID, 'product_name': productName, 'product_tagline': productTagline, 'product_colour': productColour, 'product_paragraph': productParagraph, 'product_sscolour': productSSColour}
     return jsonify(item_to_return)
+
+if __name__ == '__main__':
+   app.run(debug = True)
