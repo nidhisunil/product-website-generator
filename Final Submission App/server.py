@@ -7,7 +7,7 @@ import time
 import openai
 import ipywidgets as widgets
 import textwrap as tw
-openai.api_key = ""
+openai.api_key = "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"
 import re
 
 app = Flask(__name__)
