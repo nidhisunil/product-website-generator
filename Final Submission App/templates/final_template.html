@@ -1,26 +1,32 @@
-{% extends "layout.html" %}
-{% block content %}
-  <script type="text/javascript" src="{{ url_for('static', filename = 'final_template.js') }}"></script>
-  <script>
-      let data = {{data|tojson}}
-  </script>
+{% extends "layout.html" %} {% block content %}
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'final_template.js') }}"
+></script>
+<script>
+  let data = {{data|tojson}}
+</script>
 
-  <div class="m-4 mb-5 lead">
-    The product you're selling is: {{data['product_id']}} <br>
-    The name you picked for it is: {{data['product_name']}} <br>
-    The tagline you picked is: {{data['product_tagline']}} <br>
-    The paragraph you picked is:
-    <p class="mx-5"><small>{{data['product_paragraph']}}</small></p>
-    The colour you picked is: {{data['product_colour']}} <br>
-    The secondary colour you picked is: {{data['product_sscolour']}}
-  </div>
+<div class="m-4 mb-5 lead">
+  The product you're selling is: {{data['product_id']}} <br />
+  The name you picked for it is: {{data['product_name']}} <br />
+  The tagline you picked is: {{data['product_tagline']}} <br />
+  The generated paragraph is:
+  <p class="mx-5"><small>{{data['product_paragraph']}}</small></p>
+  The colour you picked is: {{data['product_colour']}} <br />
+  The secondary colour you picked is: {{data['product_sscolour']}}
+</div>
 
-
-  <br>
-  <div class="m-3 lead text-center">
-    Click to see final site:
-  </div>
-  <div class="m-3 text-center">
-    <button type="button" name="button" class="btn btn-secondary" id="final_website">Here</button>
-  </div>
+<br />
+<div class="m-3 lead text-center">Click to see final site:</div>
+<div class="m-3 text-center">
+  <button
+    type="button"
+    name="button"
+    class="btn btn-secondary"
+    id="final_website"
+  >
+    Here
+  </button>
+</div>
 {% endblock %}

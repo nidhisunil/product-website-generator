@@ -1,38 +1,33 @@
-{% extends "layout.html" %}
-{% block content %}
-  <script type="text/javascript" src="{{ url_for('static', filename = 'paragraph.js') }}"></script>
-  <script>
-      let data = {{data|tojson}}
-  </script>
+{% extends "layout.html" %} {% block content %}
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'paragraph.js') }}"
+></script>
+<script>
+  let data = {{data|tojson}}
+</script>
 
-  <div class="m-4 mb-5 lead">
-    The product you're selling is: {{data['product_id']}} <br>
-    The name you picked for it is: {{data['product_name']}} <br>
-    The tagline you picked is: {{data['product_tagline']}}
-  </div>
+<div class="m-4 lead">Here's a suggested paragraph for your product</div>
+<div class="m-4">{{data['product_paragraph']}}</div>
 
-  <div class="m-4 lead">
-    Here's a suggested paragraph for your product
-  </div>
-  <div class="m-4">
-    {{data['product_paragraph']}}
-  </div>
+<div class="m-4 lead">Here's also some suggested colours for your website:</div>
+<div class="m-4">{{data['numbered_product_colours']}}</div>
 
-  <div class="m-4 lead">
-    Here's also some suggested colours for your website:
-  </div>
-  <div class="m-4">
-    {{data['numbered_product_colours']}}
-  </div>
-
-  <br><br>
-  <div class="m-3 lead text-center">
-    Which colour do you want your website to be primarily? 
-  </div>
-  <div class="m-3 text-center">
-    <input type="text" name="" value="" id="product_colour">
-  </div>
-  <div class="m-3 text-center">
-    <button type="button" name="button" class="btn btn-secondary" id="submit_product_colour">Submit</button>
-  </div>
+<br /><br />
+<div class="m-3 lead text-center">
+  Which colour do you want your website to be primarily?
+</div>
+<div class="m-3 text-center">
+  <input type="text" name="" value="" id="product_colour" />
+</div>
+<div class="m-3 text-center">
+  <button
+    type="button"
+    name="button"
+    class="btn btn-secondary"
+    id="submit_product_colour"
+  >
+    Submit
+  </button>
+</div>
 {% endblock %}

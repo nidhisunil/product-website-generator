@@ -7,7 +7,7 @@ import time
 import openai
 import ipywidgets as widgets
 import textwrap as tw
-openai.api_key = "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"
+openai.api_key = ""
 import re
 
 app = Flask(__name__)
@@ -55,7 +55,7 @@ def paragraph():
     global productName
     global productTagline
     global productParagraph
-    prompt = f"{productID} is a business that sells {productID}. Their tagline is {productTagline}. Write three paragraphs for the business explaining why they have the best {productID} and why you should buy from them."
+    prompt = f"{productID} is a business that sells {productID}. Their tagline is {productTagline}. Write a few sentences for the business explaining why they have the best {productID} and why you should buy from them."
     completion = openai.Completion.create(engine="text-davinci-002",max_tokens=256,prompt=prompt)
     result = completion.choices[0].text.strip()
     colour_prompt = f"{productName} is a company that sells {productID}. Give me a numbered list of 5 colours for its website:"
